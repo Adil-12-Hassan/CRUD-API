@@ -5,7 +5,6 @@ import todoRoutes from './routes/todoRoutes.js';
 import authRoutes from './routes/authRoutes.js';
 import errorHandler from './middleware/errorMiddleware.js';
 dotenv.config();
-console.log('JWT_SECRET exists:', Boolean(process.env.JWT_SECRET));
 
 const app = express();
 
@@ -14,8 +13,11 @@ app.use('/api/auth', authRoutes);
 app.use('/api/todos', todoRoutes);
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 5000;
+app.get('/', (req, res) => {
+    res.json('API is running...');
+});
 
+const PORT = process.env.PORT || 5000;
 const startServer = async () => {
     try {
         await connectDB();

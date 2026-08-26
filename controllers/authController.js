@@ -3,12 +3,8 @@ import jwt from 'jsonwebtoken';
 
 // Generate JWT
 const generateToken = (id) => {
-    console.log('JWT_SECRET in controller:', process.env.JWT_SECRET);
-
     return jwt.sign(
-        { id },
-        process.env.JWT_SECRET,
-        { expiresIn: '30d', }
+        { id }, process.env.JWT_SECRET, { expiresIn: '30d', }
     );
 };
 // Signup
@@ -68,3 +64,10 @@ export const loginUser = async (req, res) => {
         });
     }
 };
+
+// Logout
+export const logoutUser = (req, res) => {
+    res.status(200).json({
+        message: 'User logged out successfully',
+    })
+}
