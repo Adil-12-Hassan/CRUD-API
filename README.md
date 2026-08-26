@@ -110,6 +110,7 @@ POST http://localhost:5000/api/auth/login
 }
 ```
 **Result:** If the request is successful and returns the expected data, it indicates that the protected route is functioning correctly. PASSED ✅
+
 ---
 
 ### Test 4 - Protected Route With Valid JWT
